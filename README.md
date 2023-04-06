@@ -4,7 +4,7 @@
 
 ## Description
 
-  This is an SVG Logo Generator that will q quickly help your generate a logo for your projects no problem.
+  This is an SVG Logo Generator that will quickly help you generate a logo for your projects.
 
 ## Table of Contents
 
@@ -23,9 +23,7 @@
 
   Once you have npm and jest installed. Simply open the file in the command terminal and type "node index.js". This will prompt a series of questions about how you would like your logo to look.
 
-## Contributing
-
-  
+  [click here](https://drive.google.com/file/d/1jR3_8dS75JXkgIH3BxP3gttDUB0B2xo3/view) for a video sample.
 
 ## Tests
 
@@ -34,8 +32,6 @@
 ## License
 
 This project is licensed under the terms of the [MIT license](https://opensource.org/licenses/MIT).
-    
-
 ## Questions
 
-  If you have any questions, concerns, or comments please reachout to me on [Github](https://github.com/https://github.com/J-Sniff/SVG_LogoMaker or at ).
+  If you have any questions, concerns, or comments please reachout to me on [Github](https://github.com/https://github.com/J-Sniff/SVG_LogoMaker).
