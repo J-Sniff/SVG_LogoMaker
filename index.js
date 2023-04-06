@@ -1,5 +1,5 @@
+const inquirer = require('inquirer')
 const fs = require('fs')
-const inquirer = require( 'inquirer' )
 const { Shape, Circle, Square, Triangle } = require('./lib/shapes');
 
 inquirer
@@ -25,7 +25,7 @@ inquirer
             name: 'shapeType',
             message: 'What would you like the shape to be?',
             type: 'list',
-            choices: ['Circle', 'Square', 'Triangle']
+            choices: ['circle', 'square', 'triangle']
 
         },
         {
@@ -35,24 +35,38 @@ inquirer
         },
     ])
     .then(answers => {
-        const shape = new Shape(answers.text, answers.shapeColor, answers.textColor);
-
-        let svg;
+        let shape;
         switch (answers.shapeType) {
-            case 'Circle':
-                svg = Circle.generateSvg(shape);
+            case 'circle':
+                shape = new Circle(answers.shapeColor);
+                shape.cx = 150;
+                shape.cy = 100;
+                shape.r = 50;
                 break;
-            case 'Square':
-                svg = Square.generateSvg(shape);
+            case 'square':
+                shape = new Square(answers.shapeColor);
+                shape.x = 50;
+                shape.y = 50;
+                shape.width = 200;
+                shape.height = 200;
                 break;
-            case 'Triangle':
-                svg = Triangle.generateSvg(shape);
+            case 'triangle':
+                shape = new Triangle(answers.shapeColor);
+                shape.x1 = 100;
+                shape.y1 = 50;
+                shape.x2 = 250;
+                shape.y2 = 50;
+                shape.x3 = 175;
+                shape.y3 = 175;
                 break;
             default:
-                throw new Error('invalid shape type');         
+                throw new Error('Invalid shape type.');
         }
-        // write SVG to file.
-        fs.writeFileSync('output.svg', svg);
+        shape.text = answers.text;
+        shape.textColor = answers.textColor;
+        const svg = shape.render();
+        fs.writeFileSync('./examples/output.svg', svg);
+        console.log('Generated Logo');
     })
     .catch(error => {
         console.error(error);
